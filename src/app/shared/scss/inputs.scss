@@ -1,0 +1,23 @@
+input {
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--base-gray-700);
+  background: var(--base-gray-500);
+}
+.form-control, .form-select{
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--base-gray-700) !important;
+  background: var(--base-gray-500) !important;
+  color: var(--base-gray-200) !important;
+
+  &::placeholder{
+    color: var(--base-gray-300) !important;
+  }
+}

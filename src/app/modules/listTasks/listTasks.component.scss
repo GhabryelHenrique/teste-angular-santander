@@ -1,0 +1,54 @@
+.infoTasks {
+  color: var(--blue);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+P{
+  margin-bottom: 0
+}
+
+.infoTasksFinished{
+color: var(--purple);
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.emptyList {
+  padding: 64px 24px;
+  gap: 16px;
+}
+
+.emptyAlert{
+  font-size: 16px;
+}
+
+td{
+  font-weight: 300 !important;
+  vertical-align: middle;
+  color: var(--base-gray-200);
+}
+
+td, th{
+  padding: .7rem 3rem
+}
+.material-symbols-outlined{
+  cursor: pointer;
+}
+
+.text-bg-success{
+  color: var(--base-gray-100) !important;
+
+}
+
+.deleteItem:hover{
+  color: var(--base-danger)
+}
+
+.editItem:hover{
+  color: var(--grayscale-text)
+}

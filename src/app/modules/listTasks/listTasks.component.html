@@ -1,0 +1,87 @@
+<section class="container d-flex flex-column">
+  <div class="createTask align-self-end">
+    <button
+      class="btn btn-primary d-flex"
+      style="gap: 5px"
+      routerLink="/createTask"
+    >
+      <span style="color: #fff" class="material-symbols-outlined">
+        add_circle
+      </span>
+      Criar Task
+    </button>
+  </div>
+
+  <div class="taskTable mt-5">
+    <div class="titleDesk d-flex justify-content-between align-items-end">
+      <p class="infoTasks">
+        Tasks Criadas
+        <span class="badge text-bg-secondary">{{ tasks.length }}</span>
+      </p>
+      <p class="infoTasksFinished">
+        Concluidas
+        <span class="badge text-bg-secondary">{{ tasksFinished.length }}</span>
+      </p>
+    </div>
+    <hr />
+
+    <div
+      class="emptyList d-flex flex-column justify-content-center align-items-center"
+      *ngIf="tasks.length == 0"
+    >
+      <span style="font-size: 56px" class="material-symbols-outlined">
+        assignment
+      </span>
+      <p class="emptyAlert">
+        <b>Você ainda não tem tarefas cadastradas</b> <br />Crie tarefas e
+        organize seus itens a fazer
+      </p>
+    </div>
+    <table class="table table-dark table-striped" *ngIf="tasks.length > 0">
+      <thead>
+        <tr>
+          <th
+            scope="col"
+
+            *ngFor="let column of tableColumns"
+          >
+            {{ column }}
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of tableData$ | async">
+          <td >{{ row.title }}</td>
+          <td>{{ row.description }}</td>
+          <td>
+            <span
+              class="badge rounded-pill"
+              [ngClass]="
+                row.status === 'Pendente'
+                  ? 'text-bg-warning'
+                  : 'text-bg-success'
+              "
+              >{{ row.status }}</span
+            >
+          </td>
+          <td>
+            <div class="d-flex justify-content-end" style="gap: 15%">
+              <span
+                class="material-symbols-outlined editItem"
+                [routerLink]="'/editTask/' + row.id"
+              >
+                edit </span
+              ><span
+                class="material-symbols-outlined deleteItem"
+                (click)="deleteTask(row)"
+              >
+                delete
+              </span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
